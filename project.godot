@@ -23,23 +23,42 @@ _global_script_classes=[ {
 "class": "VisionCone2D",
 "language": "GDScript",
 "path": "res://addons/vision_cone_2d/vision_cone_2d.gd"
+}, {
+"base": "Node2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Weapons/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Player": "",
-"VisionCone2D": ""
+"VisionCone2D": "",
+"Weapon": ""
 }
 
 [application]
 
 config/name="Final Project"
+run/main_scene="res://LevelScenes/MainLevel1.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalSignals="*res://globals/GlobalSignals.gd"
 
 [display]
 
 window/size/width=720
 window/size/height=640
 window/stretch/mode="2d"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[global]
+
+Application=false
 
 [gui]
 

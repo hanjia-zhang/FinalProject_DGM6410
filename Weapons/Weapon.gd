@@ -1,6 +1,5 @@
 extends Node2D
-
-signal weaponFired(bullet, location, direction)
+class_name Weapon
 
 export (PackedScene) var Bullet # which can keep the data of other scenes
 
@@ -16,6 +15,6 @@ func shoot():
 		print("shot's fire")
 		var bulletInstace = Bullet.instance()
 		var direction = (gunDirection.global_position - gunBarrel.global_position).normalized()
-		emit_signal("weaponFired", bulletInstace, gunBarrel.global_position, direction)
+		GlobalSignals.emit_signal("bulletFired", bulletInstace, gunBarrel.global_position, direction)
 		shotCoolDown.start()# Set up limitation of "shots per second"
 		flashAnimation.play("muzzleFlash")

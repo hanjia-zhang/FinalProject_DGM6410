@@ -8,7 +8,7 @@ var spawn_nodes = []
 func _ready():
 
 	# create an empty list to hold the spawn nodes
-	
+	randomize()
 
 	# get all the nodes with the name "spawn"
 	for node in get_tree().get_nodes_in_group("PlayerSpawnGroup"):

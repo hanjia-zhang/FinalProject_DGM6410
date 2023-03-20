@@ -4,7 +4,9 @@ export var num_enemies = 10
 
 var enemy_scene = preload("res://Objects/Enemy.tscn")
 
-
+func _ready():
+	randomize()
+	spawn_enemy()
 
 func _physics_process(delta):
 	if Input.is_action_just_released("spawnTest"):

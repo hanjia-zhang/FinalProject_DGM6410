@@ -7,7 +7,6 @@ extents = Vector2( 160, 132 )
 
 [node name="EnemySpawnManager" type="Node2D"]
 script = ExtResource( 1 )
-num_enemies = 5
 
 [node name="SpawnArea" type="Area2D" parent="."]
 

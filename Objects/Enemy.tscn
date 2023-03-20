@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Objects/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprits/circle16x16.png" type="Texture" id=4]
+[ext_resource path="res://Objects/AI.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 9.0
+radius = 77.0065
 
 [node name="Enemy" type="KinematicBody2D" groups=["enemies"]]
 position = Vector2( 219, 135 )
@@ -27,7 +28,18 @@ position = Vector2( 5, 6 )
 
 [node name="Health" parent="." instance=ExtResource( 3 )]
 
-[node name="HurtArea" type="Area2D" parent="."]
+[node name="AI" type="Node2D" parent="."]
+script = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+[node name="PlayerDetectionZone" type="Area2D" parent="AI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
 shape = SubResource( 2 )
+
+[node name="PatrolTimer" type="Timer" parent="AI"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_body_entered"]
+[connection signal="body_exited" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_body_exited"]
+[connection signal="timeout" from="AI/PatrolTimer" to="AI" method="_on_PatrolTimer_timeout"]
