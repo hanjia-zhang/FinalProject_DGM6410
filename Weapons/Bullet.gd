@@ -28,4 +28,4 @@ func _on_DestroyTimer_timeout():
 func _on_Bullet_body_entered(body):
 	if body.has_method("handleHit"): #Using duck method to check what property it has
 		body.handleHit()
-		queue_free()
+	queue_free()

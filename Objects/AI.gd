@@ -24,7 +24,7 @@ var actorVelocity: Vector2 = Vector2.ZERO
 
 func _ready():
 	setState(State.PATROL)
-
+	
 
 func _physics_process(delta):
 	match currentState:
@@ -51,6 +51,7 @@ func _physics_process(delta):
 func initialize(actor, weapon: Weapon):
 	self.actor = actor
 	self.weapon = weapon
+	weapon.connect("weaponOutOfAmmo", self, "handleReload")
 
 
 func setState(newState: int): 
@@ -65,6 +66,8 @@ func setState(newState: int):
 	currentState = newState
 	emit_signal("stateChange", currentState)
 	
+func handleReload():
+	weapon.startReload()
 	
 
 func _on_PlayerDetectionZone_body_entered(body):#if player inter the zone, then attack
