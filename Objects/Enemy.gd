@@ -26,3 +26,4 @@ func handleHit():
 		queue_free()
 		emit_signal("dead")
 		print("Im dead")
+		
