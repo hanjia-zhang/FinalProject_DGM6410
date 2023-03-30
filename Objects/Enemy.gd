@@ -1,13 +1,16 @@
+class_name Enemy
 extends KinematicBody2D
 
 
 onready var healthStat = $Health
 onready var ai = $AI
 onready var weapon = $Weapon
+signal dead
 
 export (int) var speed = 100
 
 func _ready():
+	visible = false
 	ai.initialize(self, weapon)
 
 func rotateToward(location: Vector2):
@@ -21,3 +24,5 @@ func handleHit():
 	print("Enemy hit", healthStat.health)
 	if healthStat.health <= 0:
 		queue_free()
+		emit_signal("dead")
+		print("Im dead")
