@@ -9,7 +9,7 @@ onready var missionText = $"../GUI"
 onready var arrpost =[$Position2D1,$Position2D2,$Position2D3,$Position2D4,$Position2D5,$Position2D6,$Position2D7,$Position2D8,$Position2D9,$Position2D10,$Position2D11,$Position2D12 ]
 
 var numEnemiesKilled = 0
-onready var numEnemiesToSpawn = 2
+onready var numEnemiesToSpawn = 10
 var RamdomPick:int
 
 func _ready():

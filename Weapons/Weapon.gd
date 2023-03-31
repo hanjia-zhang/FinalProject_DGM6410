@@ -14,12 +14,16 @@ onready var gunDirection = $GunDirection
 onready var shotCoolDown = $ShotCoolDown
 onready var flashAnimation = $FlashAnimation
 onready var muzzleFlash = $MuzzleFlash
+onready var shotsound = $shotSound
+onready var reloadsound = $ReloadSound
 
 func _ready():
 	muzzleFlash.hide()
 
 func startReload():
 	flashAnimation.play("reload")
+	reloadsound.play()
+	
 	
 func stopReload():
 	currentAmmo = maxAmmo
@@ -44,4 +48,6 @@ func shoot():
 		shotCoolDown.start()# Set up limitation of "shots per second"
 		flashAnimation.play("muzzleFlash")
 		setCurrentAmmo(currentAmmo - 1)
+		shotsound.play()
+		
 		
