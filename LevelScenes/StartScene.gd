@@ -1,20 +1,18 @@
 extends CanvasLayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var crditPage = $crditBG
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	crditPage.hide()
 
 func _on_TextureButton_pressed():
 	get_tree().change_scene("res://LevelScenes/MainLevel1.tscn")
+
+
+func _on_CreditButton2_pressed():
+	crditPage.show()
+
+
+func _on_CloseButton_pressed():
+	crditPage.hide()

@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI/SpaceMono30.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/GUI.gd" type="Script" id=2]
 [ext_resource path="res://Font/SpaceMono-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sprits/button/IS_MainButton_Hover.png" type="Texture" id=4]
+[ext_resource path="res://Sprits/button/IS_ContinueButton_Hover.png" type="Texture" id=5]
+[ext_resource path="res://Sprits/button/IS_ContinueButton_Normal.png" type="Texture" id=6]
+[ext_resource path="res://Sprits/button/IS_MainButton_Normal.png" type="Texture" id=7]
+[ext_resource path="res://Sprits/button/IS_ContinueButton_Pressed.png" type="Texture" id=8]
+[ext_resource path="res://Sprits/button/IS_MainButton_Pressed.png" type="Texture" id=9]
+[ext_resource path="res://UI/timerGUi.gd" type="Script" id=10]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 0, 0, 1 )
@@ -46,31 +53,123 @@ mouse_filter = 2
 
 [node name="TopRow" type="HBoxContainer" parent="MarginContainer/Rows"]
 margin_right = 1820.0
-margin_bottom = 182.0
+margin_bottom = 93.0
 mouse_filter = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
 
-[node name="Missions" type="Label" parent="MarginContainer/Rows/TopRow"]
-margin_top = 44.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
+margin_right = 861.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+
+[node name="Missions" type="Label" parent="MarginContainer/Rows/TopRow/HBoxContainer"]
 margin_right = 126.0
-margin_bottom = 137.0
+margin_bottom = 93.0
 custom_fonts/font = ExtResource( 1 )
 text = "Mission
 "
 align = 2
 
-[node name="MiddleRow" type="HBoxContainer" parent="MarginContainer/Rows"]
-margin_top = 186.0
+[node name="KAEmission2" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
+margin_left = 865.0
+margin_right = 1726.0
+margin_bottom = 93.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Discription" type="Label" parent="MarginContainer/Rows/TopRow/KAEmission2"]
+margin_left = 489.0
+margin_right = 741.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 1 )
+text = "Enemy remain: 
+"
+
+[node name="remain" type="Label" parent="MarginContainer/Rows/TopRow/KAEmission2"]
+margin_left = 745.0
+margin_right = 763.0
+margin_bottom = 93.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+text = "0
+"
+
+[node name="Label2" type="Label" parent="MarginContainer/Rows/TopRow/KAEmission2"]
+margin_left = 767.0
+margin_right = 821.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 1 )
+text = " / 
+"
+
+[node name="Label3" type="Label" parent="MarginContainer/Rows/TopRow/KAEmission2"]
+margin_left = 825.0
+margin_right = 861.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 1 )
+text = "10
+"
+
+[node name="timerGUi" type="Label" parent="MarginContainer/Rows/TopRow"]
+margin_left = 1730.0
+margin_top = 24.0
 margin_right = 1820.0
-margin_bottom = 915.0
+margin_bottom = 69.0
+custom_fonts/font = ExtResource( 1 )
+text = "Timer"
+script = ExtResource( 10 )
+
+[node name="MiddleRow" type="HBoxContainer" parent="MarginContainer/Rows"]
+margin_top = 97.0
+margin_right = 1820.0
+margin_bottom = 916.0
 mouse_filter = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="BottomRow" type="HBoxContainer" parent="MarginContainer/Rows"]
-margin_top = 919.0
+[node name="InGameMenuBG" type="ColorRect" parent="MarginContainer/Rows/MiddleRow"]
 margin_right = 1820.0
-margin_bottom = 979.0
+margin_bottom = 819.0
+mouse_filter = 2
+size_flags_horizontal = 3
+color = Color( 0.188235, 0.145098, 0.145098, 1 )
+
+[node name="containuButton" type="TextureButton" parent="MarginContainer/Rows/MiddleRow/InGameMenuBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -176.0
+margin_top = -180.5
+margin_right = 174.0
+margin_bottom = 19.5
+mouse_filter = 1
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 5 )
+expand = true
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer/Rows/MiddleRow/InGameMenuBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -118.0
+margin_top = 27.5
+margin_right = 118.0
+margin_bottom = 135.5
+mouse_filter = 1
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="BottomRow" type="HBoxContainer" parent="MarginContainer/Rows"]
+margin_top = 920.0
+margin_right = 1820.0
+margin_bottom = 980.0
 mouse_filter = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
@@ -123,3 +222,6 @@ margin_right = 1616.0
 margin_bottom = 52.0
 custom_fonts/font = ExtResource( 1 )
 text = "30"
+
+[connection signal="pressed" from="MarginContainer/Rows/MiddleRow/InGameMenuBG/containuButton" to="." method="_on_containuButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Rows/MiddleRow/InGameMenuBG/BackButton" to="." method="_on_BackButton_pressed"]

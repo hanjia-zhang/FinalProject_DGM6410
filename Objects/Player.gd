@@ -55,6 +55,8 @@ func handleHit():
 	healthStat.health -= 20
 	emit_signal("playerHealthChanged", healthStat.health)
 	print("Player hit", healthStat.health)
+	if healthStat.health <= 0:
+		get_tree().change_scene("res://LevelScenes/LossScene.tscn")
 
 func reload():
 	weapon.startReload()

@@ -1,6 +1,7 @@
 extends Node2D
 
 
+
 onready var bulletManager = $BulletManager
 onready var player: Player = $Player
 onready var gui = $GUI

@@ -5,7 +5,7 @@
 [ext_resource path="res://Managers/BulletManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Managers/SpawnManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Managers/PlayerSpawnSpot.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Bomb.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprits/Default.png" type="Texture" id=8]
 [ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://LevelScenes/MissionsManager.gd" type="Script" id=10]
@@ -73,15 +73,6 @@ position = Vector2( 290, 254 )
 [node name="Light2D" parent="Player" index="5"]
 texture_scale = 0.3
 
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 284, 135 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 310, 112 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 280, 111 )
-
 [node name="BulletManager" parent="." instance=ExtResource( 3 )]
 
 [node name="SpawnManager" parent="." instance=ExtResource( 4 )]
@@ -126,6 +117,21 @@ position = Vector2( 880, 200 )
 
 [node name="Position2D12" type="Position2D" parent="MissionsManager"]
 position = Vector2( 520, 992 )
+
+[node name="Passcode" type="Position2D" parent="MissionsManager"]
+position = Vector2( 64, 456 )
+
+[node name="Passcode2" type="Position2D" parent="MissionsManager"]
+position = Vector2( 296, 112 )
+
+[node name="Passcode3" type="Position2D" parent="MissionsManager"]
+position = Vector2( 1000, 296 )
+
+[node name="Passcode4" type="Position2D" parent="MissionsManager"]
+position = Vector2( 448, 856 )
+
+[node name="Bomb" parent="." instance=ExtResource( 7 )]
+position = Vector2( 440, 368 )
 
 [editable path="Player"]
 [editable path="GUI"]
